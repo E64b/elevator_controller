@@ -1,4 +1,7 @@
-/*Keys val*/
+#define RECIVER_ID 0x01 // Device ID HEX
+
+
+/*Outputs*/
 #define BUSY_1_LED 2 //Orange Led
 #define BUSY_2_LED 3 //Red led
 #define POWER_LED 4 //Green Led
@@ -23,6 +26,6 @@
 
 #define DELAY_TIME 1000 //time for init ms
 
-#define FLASH_TIME 500 //led flash time
+#define LED_DURATION 500 // led flash time
 
-#define RECIVER_ID 0x01 //Device ID HEX
+#define POWER_DELAY 1000 // Delay for init power relay

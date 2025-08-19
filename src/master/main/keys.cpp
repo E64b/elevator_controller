@@ -110,6 +110,11 @@ void keys() {
       }
     } else if (KEY_10_VAL - TOLERANCE <= keyValue &&
                KEY_10_VAL + TOLERANCE >= keyValue) {
+      if (key.keyWork == false) {
+        key.keyWork = true;
+      } else {
+        key.keyWork = false;
+      }
     } else if (KEY_11_VAL - TOLERANCE <= keyValue &&
                KEY_11_VAL + TOLERANCE >= keyValue) {
       if (key.keyDown == false) {
@@ -117,6 +122,11 @@ void keys() {
       }
     } else if (KEY_12_VAL - TOLERANCE <= keyValue &&
                KEY_12_VAL + TOLERANCE >= keyValue) {
+      if (key.keyMode == false) {
+        key.keyMode = true;
+      } else {
+        key.keyMode = false;
+      }
     }
   }
 }

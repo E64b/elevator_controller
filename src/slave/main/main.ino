@@ -1,48 +1,50 @@
 #include "main.h"
 
-VAL val;
+LEDS led;
+PACKET outmsg;
+MAIL incmsg;
 
 void setup() {
-  /*Other init*/
-  pinMode(LED_1_PIN, OUTPUT);
-  pinMode(LED_2_PIN, OUTPUT);
-  pinMode(LED_3_PIN, OUTPUT);
-  pinMode(LED_4_PIN, OUTPUT);
-  pinMode(LED_5_PIN, OUTPUT);
-  pinMode(LED_6_PIN, OUTPUT);
-  pinMode(LED_7_PIN, OUTPUT);
-  pinMode(LED_8_PIN, OUTPUT);
-  pinMode(KEY_PIN, INPUT);
+  /*
+  Serial.begin(9600);
+  while (!Serial)    ;
+  Serial.println("LoRa Receiver");*/
+
+  pinMode(POWER_LED, OUTPUT);
+  pinMode(BUSY_1_LED, OUTPUT);
+  pinMode(BUSY_2_LED, OUTPUT);  
+  
+  pinMode(POWER_RELAY, OUTPUT);
+  digitalWrite(POWER_RELAY, LOW);
+  pinMode(UP_OUTPUT, OUTPUT);
+  digitalWrite(UP_OUTPUT, LOW);
+  pinMode(DOWN_OUTPUT, OUTPUT);
+  digitalWrite(DOWN_OUTPUT, LOW);
  
-  /*Stepper init*/
-  pinMode(EN, OUTPUT);
-  digitalWrite(EN, HIGH);
-  pinMode(STEP, OUTPUT);
 
-  /*PID init*/
-  PIDreg.setDirection(NORMAL);
-  PIDreg.setLimits(0, 255);
-  PIDreg.setDt(10000);
-  PIDreg.setpoint = DEFAULT_TARGET_TEMP;
-  /*PID setup*/
-  PIDreg.Kp = 1;
-  PIDreg.Ki += 456;
-  PIDreg.Kd = 46.7;
+  digitalWrite(POWER_RELAY, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(POWER_LED, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(BUSY_1_LED, HIGH);
+  delay(DELAY_TIME);
+  digitalWrite(BUSY_2_LED, HIGH);
+  delay(DELAY_TIME);
 
-  val.displayRedraw = true;
-  delay(5000);
-  lcd.clear();
+  LoRa.begin(868E6);
+  LoRa.setTxPower(20);
+
+  digitalWrite(BUSY_1_LED, LOW);
+  digitalWrite(BUSY_2_LED, LOW);
+  digitalWrite(POWER_LED, LOW);
+  digitalWrite(UP_OUTPUT, LOW);
+  digitalWrite(DOWN_OUTPUT, LOW);
+  digitalWrite(POWER_RELAY, LOW);  
 }
 
 void loop() {
-  enc.tick();
-  start.tick();
-  digitalWrite(EN, val.stepper);
-
-  menu();
-  display();
-  tempSensor();
-  protection();
-  rPID();
-  work();
+  leds();
+  sensor();
+  radio();
+  //debugMode();
 }

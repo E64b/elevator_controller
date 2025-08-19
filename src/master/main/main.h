@@ -37,19 +37,15 @@ typedef struct {
   bool keyState8 = false;
   bool keyUp = false;
   bool keyDown = false;
+  bool keyWork = false;
+  bool keyMode = false;
+
   bool keyStateChange = true;
 } KEY;
 
 typedef struct {
   uint8_t ID = TRANCIVER_ID;
-  bool keyState1 = false;
-  bool keyState2 = false;
-  bool keyState3 = false;
-  bool keyState4 = false;
-  bool keyState5 = false;
-  bool keyState6 = false;
-  bool keyState7 = false;
-  bool keyState8 = false;
+  uint8_t keyState = false;  
   bool keyUp = false;
   bool keyDown = false;
   bool work = false;
@@ -57,15 +53,8 @@ typedef struct {
 } PACKET;
 
 typedef struct {
-  uint8_t ID = TRANCIVER_ID;
-  bool keyState1 = false;
-  bool keyState2 = false;
-  bool keyState3 = false;
-  bool keyState4 = false;
-  bool keyState5 = false;
-  bool keyState6 = false;
-  bool keyState7 = false;
-  bool keyState8 = false;
+  uint8_t ID = SENDER_ID;
+  uint8_t keyState = false;  
   bool keyUp = false;
   bool keyDown = false;
   bool work = false;
