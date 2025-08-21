@@ -3,6 +3,7 @@
 LEDS led;
 PACKET outmsg;
 MAIL incmsg;
+KEY key;
 
 void setup() {
   /*
@@ -32,7 +33,7 @@ void setup() {
   delay(DELAY_TIME);
 
   LoRa.begin(868E6);
-  LoRa.setTxPower(20);
+  //LoRa.setTxPower(20);
 
   digitalWrite(BUSY_1_LED, LOW);
   digitalWrite(BUSY_2_LED, LOW);
@@ -46,5 +47,6 @@ void loop() {
   leds();
   sensor();
   radio();
+  work();
   //debugMode();
 }

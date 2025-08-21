@@ -1,4 +1,5 @@
 #pragma once
+#pragma pack(push, 1)
 
 /*LIBS*/
 #include "lib/LoRa.h"
@@ -33,6 +34,7 @@ typedef struct {
   bool mode = false;
 } PACKET;
 
+// not use now
 typedef struct {
   uint8_t ID = SENDER_ID;
   uint8_t keyState = false;
@@ -41,22 +43,35 @@ typedef struct {
   bool work = false;
   bool mode = false;
 } MAIL;
+// not use now
 
 typedef struct {
-  uint8_t ID = SENDER_ID;
-  uint8_t keyState = false;
-  bool keyUp = false;
-  bool keyDown = false;
-  bool work = false;
-  bool mode = false;
+  bool busy1Led = false;
+  bool busy2Led = false;
+  bool powerLed = false;
+  bool ledStateChange = false;
 } LEDS;
+
+typedef struct {
+  bool keyState1 = false;
+  bool keyState2 = false;
+  bool keyState3 = false;
+  bool keyState4 = false;
+  bool keyState5 = false;
+  bool keyState6 = false;
+  bool keyState7 = false;
+  bool keyState8 = false;
+} KEY;
 
 #pragma pack(pop)
 
 void leds();
 void radio();
 void sensor();
+void debugMode();
+void work();
 
+extern KEY key;
 extern LEDS led;
 extern PACKET outmsg;
 extern MAIL incmsg;

@@ -1,6 +1,5 @@
 #define RECIVER_ID 0x01 // Device ID HEX
 
-
 /*Outputs*/
 #define BUSY_1_LED 2 //Orange Led
 #define BUSY_2_LED 3 //Red led
@@ -29,3 +28,5 @@
 #define LED_DURATION 500 // led flash time
 
 #define POWER_DELAY 1000 // Delay for init power relay
+
+#define RADIO_TIMING 0 //delay for recived msg
