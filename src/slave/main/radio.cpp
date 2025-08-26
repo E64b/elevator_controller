@@ -2,8 +2,8 @@
 
 static uint32_t radioTimming;
 static bool recived;
-
-void senderIdDecoding() {}
+static uint8_t currentID;
+static bool firsPacket = true;
 
 void keyStateDecoding() {
   key.keyState1 = incmsg.keyState & (1 << 0); // Проверка 0-го бита
@@ -18,10 +18,10 @@ void keyStateDecoding() {
 }
 
 void commandDecoding() {
-  incmsg.keyUp = incmsg.working & (1 << 0); // Проверка 0-го бита
+  incmsg.keyUp = incmsg.working & (1 << 0);   // Проверка 0-го бита
   incmsg.keyDown = incmsg.working & (1 << 1); // Проверка 1-го бита
-  incmsg.mode = incmsg.working & (1 << 2); // Проверка 2-го бита
-  incmsg.work = incmsg.working & (1 << 3); // Проверка 3-го бита
+  incmsg.mode = incmsg.working & (1 << 2);    // Проверка 2-го бита
+  incmsg.work = incmsg.working & (1 << 3);    // Проверка 3-го бита
   /*
   key.keyState6 = 0 & (1 << 4); // Проверка 4-го бита
   key.keyState7 = 0 & (1 << 5); // Проверка 5-го бита
@@ -32,7 +32,6 @@ void commandDecoding() {
 }
 
 void packetDecoding() {
-  senderIdDecoding();
   keyStateDecoding();
   commandDecoding();
 }
@@ -49,13 +48,21 @@ void radio() {
 
     // Распаковываем данные
     incmsg.ID = static_cast<uint8_t>(packet[0]);
+    // если нас впервые вызвали запоминаем 
+    if (firsPacket) { 
+      currentID = incmsg.ID;
+      firsPacket = false;
+    }
     incmsg.keyState = static_cast<uint8_t>(packet[1]);
     incmsg.working = static_cast<uint8_t>(packet[2]);
     recived = true;
 
     if (millis() - radioTimming > RADIO_TIMING && recived) {
       radioTimming = millis();
-      packetDecoding();
+      //слушаем эфир но игнорируем все чужие пакеты
+      if (currentID == incmsg.ID) {
+        packetDecoding();
+      }
       recived = false;
     }
   }

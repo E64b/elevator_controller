@@ -59,4 +59,10 @@ if (!idValid) {
   checkID();
 }
 
-void work() { if () }
+void work() {
+  if (incmsg.keyUp) {
+    digitalWrite(UP_OUTPUT, HIGH);
+  } else {
+    digitalWrite(UP_OUTPUT, LOW);
+  }
+}
