@@ -32,6 +32,7 @@ void keys() {
         KEY_RELISED + TOLERANCE >= keyValue) {
       key.keyUp = false;
       key.keyDown = false;
+      key.keyStateChange = true;
     } else if (KEY_1_VAL <= keyValue && KEY_1_VAL + TOLERANCE >= keyValue) {
       if (key.keyState1 == true) {
         key.keyState1 = false;
@@ -112,13 +113,16 @@ void keys() {
                KEY_10_VAL + TOLERANCE >= keyValue) {
       if (key.keyWork == false) {
         key.keyWork = true;
+        key.keyStateChange = true;
       } else {
         key.keyWork = false;
+        key.keyStateChange = true;
       }
     } else if (KEY_11_VAL - TOLERANCE <= keyValue &&
                KEY_11_VAL + TOLERANCE >= keyValue) {
       if (key.keyDown == false) {
         key.keyDown = true;
+        key.keyStateChange = true;
       }
     } else if (KEY_12_VAL - TOLERANCE <= keyValue &&
                KEY_12_VAL + TOLERANCE >= keyValue) {
@@ -126,6 +130,7 @@ void keys() {
         key.keyMode = true;
       } else {
         key.keyMode = false;
+        key.keyStateChange = true;
       }
     }
   }

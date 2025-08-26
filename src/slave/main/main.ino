@@ -32,7 +32,7 @@ void setup() {
   digitalWrite(BUSY_2_LED, HIGH);
   delay(DELAY_TIME);
 
-  LoRa.begin(868E6);
+  LoRa.begin(LORA_FREQ);
   //LoRa.setTxPower(20);
 
   digitalWrite(BUSY_1_LED, LOW);

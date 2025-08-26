@@ -1,4 +1,8 @@
-#define RECIVER_ID 0x01 // Device ID HEX
+#define RECIVER_ID 0x1 // Device ID HEX
+#define LORA_FREQ 868E6 // FREQ LoRa module
+
+#define SENDER1_ID 0x1
+#define SENDER2_ID 0x2
 
 /*Outputs*/
 #define BUSY_1_LED 2 //Orange Led

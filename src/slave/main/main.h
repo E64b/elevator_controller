@@ -15,14 +15,14 @@
 #include <math.h>
 
 /*Leds outs
-#define Output1 
-#define Output2 
-#define Output3 
-#define Output4 
-#define Output5 
-#define Output6 
-#define Output7 
-#define Output8 
+#define Output1
+#define Output2
+#define Output3
+#define Output4
+#define Output5
+#define Output6
+#define Output7
+#define Output8
 */
 
 typedef struct {
@@ -42,6 +42,7 @@ typedef struct {
   bool keyDown = false;
   bool work = false;
   bool mode = false;
+  uint8_t working = 0;
 } MAIL;
 // not use now
 

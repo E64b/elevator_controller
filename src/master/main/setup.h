@@ -1,6 +1,7 @@
 /*Radio setup*/
-#define TRANCIVER_ID 0x01 // Device ID HEX
+#define TRANCIVER_ID 0x1 // Device ID HEX
 #define RADIO_TIMING 250 //Frequency of sending messages
+#define LORA_FREQ 868E6 //FREQ LoRa module
 /*End radio setup*/
 
 /*Keys setup*/
