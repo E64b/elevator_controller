@@ -26,6 +26,7 @@ void packetDecoding() {
   commandDecoding();
   modeDecoding();
 }
+
 void radio() {
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
