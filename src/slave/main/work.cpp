@@ -65,4 +65,9 @@ void work() {
   } else {
     digitalWrite(UP_OUTPUT, LOW);
   }
+  if (incmsg.keyDown) {
+    digitalWrite(DOWN_OUTPUT, HIGH);
+  } else {
+    digitalWrite(DOWN_OUTPUT, LOW);
+  }
 }
