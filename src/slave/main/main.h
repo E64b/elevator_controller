@@ -36,15 +36,11 @@ typedef struct {
 */
 
 typedef struct {
- uint8_t ID;
-  uint8_t keyState = false;
-  bool keyUp = false;
-  bool keyDown = false;
-  bool work = false;
-  bool mode = false;
-  uint8_t working = 0;
+  uint8_t ID;
+  uint8_t firstByte = 0;  
+  uint8_t secondByte = 0;
+  
 } MAIL;
-
 
 typedef struct {
   bool busy1Led = false;
@@ -62,6 +58,11 @@ typedef struct {
   bool keyState6 = false;
   bool keyState7 = false;
   bool keyState8 = false;
+
+  bool keyUp = false;
+  bool keyDown = false;
+  bool work = false;
+  bool mode = false;
 } KEY;
 
 #pragma pack(pop)
@@ -74,5 +75,5 @@ void work();
 
 extern KEY key;
 extern LEDS led;
-//extern PACKET outmsg;
+// extern PACKET outmsg;
 extern MAIL incmsg;

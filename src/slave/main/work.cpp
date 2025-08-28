@@ -61,12 +61,12 @@ void work() {
   if (!idValid) {
     checkID();
   }
-  if (incmsg.keyUp) {
+  if (key.keyUp) {
     digitalWrite(UP_OUTPUT, HIGH);
   } else {
     digitalWrite(UP_OUTPUT, LOW);
   }
-  if (incmsg.keyDown) {
+  if (key.keyDown) {
     digitalWrite(DOWN_OUTPUT, HIGH);
   } else {
     digitalWrite(DOWN_OUTPUT, LOW);

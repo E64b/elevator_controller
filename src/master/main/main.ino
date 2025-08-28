@@ -51,6 +51,8 @@ void setup() {
   LoRa.setSpreadingFactor(SPREADING_FACTOR); 
   LoRa.setSignalBandwidth(SIGNAL_BANDWIDTH);
   LoRa.setTxPower(TX_POWER);
+  //LoRa.enableCrc();
+  LoRa.disableCrc();
 }
 void loop() {
   leds();

@@ -37,6 +37,8 @@ void setup() {
   LoRa.setSpreadingFactor(SPREADING_FACTOR);
   LoRa.setSignalBandwidth(SIGNAL_BANDWIDTH);
   LoRa.setTxPower(TX_POWER);
+  // LoRa.enableCrc();
+  LoRa.disableCrc();
 
   digitalWrite(BUSY_1_LED, LOW);
   digitalWrite(BUSY_2_LED, LOW);
