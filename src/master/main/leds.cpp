@@ -3,7 +3,7 @@
 static uint32_t ledDuration;
 
 void leds() {
-  if (millis() - ledDuration > LED_DURATION && key.keyStateChange == true) {
+  if (millis() - ledDuration > LED_DURATION && key.keyStateChange) {
     ledDuration = millis();
     key.keyStateChange = false;
     digitalWrite(LED_1_PIN, key.keyState1);

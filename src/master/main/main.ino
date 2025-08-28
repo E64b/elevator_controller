@@ -2,7 +2,7 @@
 
 KEY key;
 PACKET outmsg;
-//MAIL incmsg;
+// MAIL incmsg;
 
 void setup() {
   /*
@@ -38,12 +38,6 @@ void setup() {
   digitalWrite(LED_8_PIN, HIGH);
   delay(DELAY_TIME);
 
-  if (!LoRa.begin(LORA_FREQ)) { // ������� ���� �������
-    Serial.println("Starting LoRa failed!");
-    while (true) {
-    };
-  }
-
   digitalWrite(LED_1_PIN, LOW);
   digitalWrite(LED_2_PIN, LOW);
   digitalWrite(LED_3_PIN, LOW);
@@ -53,12 +47,14 @@ void setup() {
   digitalWrite(LED_7_PIN, LOW);
   digitalWrite(LED_8_PIN, LOW);
 
-  LoRa.setTxPower(20);
+  LoRa.begin(LORA_FREQ);
+  LoRa.setSpreadingFactor(SPREADING_FACTOR); 
+  LoRa.setSignalBandwidth(SIGNAL_BANDWIDTH);
+  LoRa.setTxPower(TX_POWER);
 }
-
 void loop() {
   leds();
   keys();
-  // radio();
+  radio();
   // debugMode();
 }

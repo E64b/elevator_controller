@@ -1,7 +1,7 @@
 #include "main.h"
 
 LEDS led;
-PACKET outmsg;
+//PACKET outmsg;
 MAIL incmsg;
 KEY key;
 
@@ -33,7 +33,10 @@ void setup() {
   delay(DELAY_TIME);
 
   LoRa.begin(LORA_FREQ);
-  //LoRa.setTxPower(20);
+  LoRa.begin(LORA_FREQ);
+  LoRa.setSpreadingFactor(SPREADING_FACTOR);
+  LoRa.setSignalBandwidth(SIGNAL_BANDWIDTH);
+  LoRa.setTxPower(TX_POWER);
 
   digitalWrite(BUSY_1_LED, LOW);
   digitalWrite(BUSY_2_LED, LOW);

@@ -55,11 +55,12 @@ void checkID() {
   }
 }
 
-if (!idValid) {
-  checkID();
-}
+
 
 void work() {
+  if (!idValid) {
+    checkID();
+  }
   if (incmsg.keyUp) {
     digitalWrite(UP_OUTPUT, HIGH);
   } else {

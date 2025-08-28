@@ -3,9 +3,7 @@
 static uint32_t radioTimming;
 static char packet[3];
 
-// �������� � uint8_t
-void keyStatePacket() {
-  if (key.keyStateChange) {
+void keyStatePacket() {  
     outmsg.keyState = 0;
     outmsg.keyState |= key.keyState1 ? (1 << 0) : 0;
     outmsg.keyState |= key.keyState2 ? (1 << 1) : 0;
@@ -15,13 +13,9 @@ void keyStatePacket() {
     outmsg.keyState |= key.keyState6 ? (1 << 5) : 0;
     outmsg.keyState |= key.keyState7 ? (1 << 6) : 0;
     outmsg.keyState |= key.keyState8 ? (1 << 7) : 0;
-    key.keyStateChange = false;
-  }
 }
 
-// �������� � uint8_t
-void workStatePacket() {
-  if (key.keyStateChange) {
+void workStatePacket() {  
     outmsg.working = 0;
     outmsg.working |= key.keyUp ? (1 << 0) : 0;
     outmsg.working |= key.keyDown ? (1 << 1) : 0;
@@ -30,9 +24,7 @@ void workStatePacket() {
     outmsg.working |= 0 ? (1 << 4) : 0;
     outmsg.working |= 0 ? (1 << 5) : 0;
     outmsg.working |= 0 ? (1 << 6) : 0;
-    outmsg.working |= 0 ? (1 << 7) : 0;
-    key.keyStateChange = false;
-  }
+    outmsg.working |= 0 ? (1 << 7) : 0;   
 }
 
 void createPacket() {
@@ -45,11 +37,12 @@ void createPacket() {
 }
 
 void radio() {
+  createPacket();
   if (millis() - radioTimming > RADIO_TIMING) {
-    createPacket();
+    //createPacket();
     radioTimming = millis();
     LoRa.beginPacket();
-    LoRa.write((uint8_t *)packet, 3);
+    LoRa.write((char *)packet, 3);
     LoRa.endPacket();
   }
 }

@@ -1,7 +1,11 @@
 /*Radio setup*/
-#define TRANCIVER_ID 0x1 // Device ID HEX
-#define RADIO_TIMING 250 //Frequency of sending messages
+#define TRANCIVER_ID 0x1 // Device ID HEX MAX 8
+#define RADIO_TIMING 500 //Frequency of sending messages
 #define LORA_FREQ 868E6 //FREQ LoRa module
+#define SIGNAL_BANDWIDTH 125E3 //Supported values are 7.8E3, 10.4E3, 15.6E3, 20.8E3, 31.25E3, 41.7E3, 62.5E3, 125E3, 250E3, and 500E3
+#define SPREADING_FACTOR 10 //6-12
+#define TX_POWER 20
+
 /*End radio setup*/
 
 /*Keys setup*/
