@@ -55,20 +55,28 @@ void checkID() {
   }
 }
 
-
-
 void work() {
   if (!idValid) {
     checkID();
   }
+
   if (key.keyUp) {
-    digitalWrite(UP_OUTPUT, HIGH);
-  } else {
     digitalWrite(UP_OUTPUT, LOW);
+  } else {
+    digitalWrite(UP_OUTPUT, HIGH);
   }
   if (key.keyDown) {
-    digitalWrite(DOWN_OUTPUT, HIGH);
-  } else {
     digitalWrite(DOWN_OUTPUT, LOW);
+  } else {
+    digitalWrite(DOWN_OUTPUT, HIGH);
+  }
+
+  if (key.work) {
+    digitalWrite(POWER_LED, LOW);
+    digitalWrite(POWER_RELAY, LOW);
+  } else {
+
+    digitalWrite(POWER_LED, HIGH);
+    digitalWrite(POWER_RELAY, HIGH);
   }
 }

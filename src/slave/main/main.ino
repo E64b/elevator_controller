@@ -16,20 +16,20 @@ void setup() {
   pinMode(BUSY_2_LED, OUTPUT);  
   
   pinMode(POWER_RELAY, OUTPUT);
-  digitalWrite(POWER_RELAY, LOW);
+  digitalWrite(POWER_RELAY, HIGH);
   pinMode(UP_OUTPUT, OUTPUT);
-  digitalWrite(UP_OUTPUT, LOW);
+  digitalWrite(UP_OUTPUT, HIGH);
   pinMode(DOWN_OUTPUT, OUTPUT);
-  digitalWrite(DOWN_OUTPUT, LOW);
+  digitalWrite(DOWN_OUTPUT, HIGH);
  
 
   digitalWrite(POWER_RELAY, HIGH);
   delay(DELAY_TIME);
-  digitalWrite(POWER_LED, HIGH);
+  digitalWrite(POWER_LED, LOW);
   delay(DELAY_TIME);
-  digitalWrite(BUSY_1_LED, HIGH);
+  digitalWrite(BUSY_1_LED, LOW);
   delay(DELAY_TIME);
-  digitalWrite(BUSY_2_LED, HIGH);
+  digitalWrite(BUSY_2_LED, LOW);
   delay(DELAY_TIME);
 
   LoRa.begin(LORA_FREQ);
@@ -40,12 +40,12 @@ void setup() {
   // LoRa.enableCrc();
   LoRa.disableCrc();
 
-  digitalWrite(BUSY_1_LED, LOW);
-  digitalWrite(BUSY_2_LED, LOW);
-  digitalWrite(POWER_LED, LOW);
-  digitalWrite(UP_OUTPUT, LOW);
-  digitalWrite(DOWN_OUTPUT, LOW);
-  digitalWrite(POWER_RELAY, LOW);  
+  digitalWrite(BUSY_1_LED, HIGH);
+  digitalWrite(BUSY_2_LED, HIGH);
+  digitalWrite(POWER_LED, HIGH);
+  digitalWrite(UP_OUTPUT, HIGH);
+  digitalWrite(DOWN_OUTPUT, HIGH);
+  digitalWrite(POWER_RELAY, HIGH);  
 }
 
 void loop() {
