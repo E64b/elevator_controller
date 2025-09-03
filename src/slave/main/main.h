@@ -5,7 +5,7 @@
 #include "lib/LoRa.h"
 #include "setup.h"
 #include <Arduino.h>
-#include <EEPROM.h>
+//#include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
 #include <Wire.h>
@@ -43,9 +43,9 @@ typedef struct {
 } MAIL;
 
 typedef struct {
-  bool busy1Led = false;
-  bool busy2Led = false;
-  bool powerLed = false;
+  bool busy1Led = true;
+  bool busy2Led = true;
+  bool powerLed = true;
   bool ledStateChange = false;
 } LEDS;
 

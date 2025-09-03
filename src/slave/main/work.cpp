@@ -62,6 +62,8 @@ void work() {
 
   if (key.keyUp) {
     digitalWrite(UP_OUTPUT, LOW);
+    debugMode();
+
   } else {
     digitalWrite(UP_OUTPUT, HIGH);
   }
@@ -72,11 +74,10 @@ void work() {
   }
 
   if (key.work) {
-    digitalWrite(POWER_LED, LOW);
+    led.powerLed = false;
     digitalWrite(POWER_RELAY, LOW);
   } else {
-
-    digitalWrite(POWER_LED, HIGH);
+    led.powerLed = true;
     digitalWrite(POWER_RELAY, HIGH);
   }
 }

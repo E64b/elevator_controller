@@ -33,7 +33,6 @@ void setup() {
   delay(DELAY_TIME);
 
   LoRa.begin(LORA_FREQ);
-  LoRa.begin(LORA_FREQ);
   LoRa.setSpreadingFactor(SPREADING_FACTOR);
   LoRa.setSignalBandwidth(SIGNAL_BANDWIDTH);
   LoRa.setTxPower(TX_POWER);
@@ -46,6 +45,7 @@ void setup() {
   digitalWrite(UP_OUTPUT, HIGH);
   digitalWrite(DOWN_OUTPUT, HIGH);
   digitalWrite(POWER_RELAY, HIGH);  
+    pinMode(1, OUTPUT);
 }
 
 void loop() {
