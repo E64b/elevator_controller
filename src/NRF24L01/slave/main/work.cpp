@@ -58,16 +58,17 @@ void checkID() {
 void work() {
   if (!idValid) {
     checkID();
+    //Serial.println("ID CORRECT");
   }
 
-  if (key.keyUP && !key.keyDown) {
-    digitalWrite(UP_OUTPUT, LOW);
+  if (key.keyUp && !key.keyDown) {
+    digitalWrite(UP_OUTPUT, LOW);    
   } else {
     digitalWrite(UP_OUTPUT, HIGH);
   }
 
-  if (key.keyDown && !key.keyUP) {
-    digitalWrite(DOWN_OUTPUT, LOW);
+  if (key.keyDown && !key.keyUp) {
+    digitalWrite(DOWN_OUTPUT, LOW);    
   } else {
     digitalWrite(DOWN_OUTPUT, HIGH);
   }

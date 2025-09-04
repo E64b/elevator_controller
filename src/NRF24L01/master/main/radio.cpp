@@ -1,7 +1,7 @@
 #include "main.h"
 
 static uint32_t radioTimming;
-static char packet[3];
+static uint8_t packet[3];
 
 void keyStatePacket() {
   outmsg.firstByte = 0;
@@ -11,7 +11,7 @@ void keyStatePacket() {
   outmsg.firstByte |= key.keyState4 ? (1 << 3) : 0;
   outmsg.firstByte |= key.keyUp ? (1 << 4) : 0;
   outmsg.firstByte |= key.keyDown ? (1 << 5) : 0;
-  outmsg.firstByte |= 0 ? (1 << 6) : 0;
+  outmsg.firstByte |= 1 ? (1 << 6) : 0;
   outmsg.firstByte |= 0 ? (1 << 7) : 0;
 
   outmsg.secondByte = 0;
@@ -21,7 +21,7 @@ void keyStatePacket() {
   outmsg.secondByte |= key.keyState8 ? (1 << 3) : 0;
   outmsg.secondByte |= key.keyMode ? (1 << 4) : 0;
   outmsg.secondByte |= key.keyWork ? (1 << 5) : 0;
-  outmsg.secondByte |= 0 ? (1 << 6) : 0;
+  outmsg.secondByte |= 1 ? (1 << 6) : 0;
   outmsg.secondByte |= 0 ? (1 << 7) : 0;
 }
 

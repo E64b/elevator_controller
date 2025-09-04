@@ -60,7 +60,7 @@ typedef struct {
 
 void leds();
 void reciver();
-void sensor();
+//void sensor();
 void work();
 
 extern KEY key;

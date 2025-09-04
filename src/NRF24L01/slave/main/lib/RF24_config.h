@@ -24,7 +24,7 @@
 //#define RF24_DEBUG
 //#define MINIMAL
 //#define SPI_UART    // Requires library from https://github.com/TMRh20/Sketches/tree/master/SPI_UART
-#define SOFTSPI     // Requires library from https://github.com/greiman/DigitalIO
+//#define SOFTSPI     // Requires library from https://github.com/greiman/DigitalIO
 
 /**
  * User access to internally used delay time (in microseconds) during RF24::powerUp()

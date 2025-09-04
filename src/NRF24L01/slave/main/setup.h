@@ -5,9 +5,11 @@
 #define MOSI_PIN 11
 #define MISO_PIN 12
 #define SCK_PIN 13
-#define POWER RF24_PA_LOW //(LOW, MIN, HIGH, MAX)
-#define SPEED RF24_1MBPS  // Set TX speed
+#define POWER RF24_PA_MIN //(LOW, MIN, HIGH, MAX)
+#define SPEED RF24_250KBPS
 #define CHANNEL 76 // (0 - 127)
+#define SIZE 3
+#define CRC RF24_CRC_8
 
 /*End radio setup*/
 
@@ -17,13 +19,13 @@
 /*DONT USE PINS D9, D10, D11, D12, D13*/
 
 /*Outputs*/
-#define BUSY_1_LED 0 //Orange Led
-#define BUSY_2_LED 1 //Red led
-#define POWER_LED 2 //Green Led
+#define BUSY_1_LED 2 //Orange Led
+#define BUSY_2_LED 3 //Red led
+#define POWER_LED 4 //Green Led
 
-#define UP_OUTPUT 3 //Output For Relay UP
-#define DOWN_OUTPUT 4 //Output For Relay Down
-#define POWER_RELAY 5 //Output For Relay 380V power
+#define UP_OUTPUT 5 //Output For Relay UP
+#define DOWN_OUTPUT 6 //Output For Relay Down
+#define POWER_RELAY 7 //Output For Relay 380V power
 
 /*rotation angle sensor*/
 /*

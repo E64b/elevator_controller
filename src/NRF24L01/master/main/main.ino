@@ -4,7 +4,6 @@ KEY key;
 PACKET outmsg;
 //MAIL incmsg;
 RF24 radio(CE_PIN, CSN_PIN);
-
 const byte address[6] = "00001";
 
 void setup() {
@@ -45,17 +44,20 @@ void setup() {
   digitalWrite(LED_7_PIN, LOW);
   digitalWrite(LED_8_PIN, LOW);
   
-  radio.begin();
+  radio.begin();  
+  radio.setChannel(CHANNEL); 
+  radio.setDataRate(SPEED); 
+  radio.setPALevel(POWER);  
+  //radio.disableDynamicPayloads();
+  radio.setPayloadSize(SIZE);
+  radio.setCRCLength(CRC);
   radio.openWritingPipe(address);
-  radio.setChannel(CHANNEL);  
-  radio.setPALevel(POWER);
-  radio.setDataRate(SPEED);
-  radio.setCRCLength(RF24_CRC_16);
+  //radio.disableCRC(); 
   radio.stopListening();
 }
 
 void loop() {
-  leds();
   keys();
+  leds();  
   sender();
 }
