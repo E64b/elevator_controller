@@ -6,7 +6,7 @@
 #include "lib/RF24.h"
 #include "lib/nRF24L01.h"
 #include <Arduino.h>
-#include <EEPROM.h>
+//#include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
 #include <Wire.h>

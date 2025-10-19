@@ -19,13 +19,13 @@
 /*DONT USE PINS D9, D10, D11, D12, D13*/
 
 /*Outputs*/
-#define BUSY_1_LED 2 //Orange Led
-#define BUSY_2_LED 3 //Red led
-#define POWER_LED 4 //Green Led
+#define BUSY_1_LED 5 //Orange Led
+#define BUSY_2_LED 6 //Red led
+#define POWER_LED 7 //Green Led
 
-#define UP_OUTPUT 5 //Output For Relay UP
-#define DOWN_OUTPUT 6 //Output For Relay Down
-#define POWER_RELAY 7 //Output For Relay 380V power
+#define UP_OUTPUT 2 //Output For Relay UP
+#define DOWN_OUTPUT 3 //Output For Relay Down
+#define POWER_RELAY 4 //Output For Relay 380V power
 
 /*rotation angle sensor*/
 /*
