@@ -35,7 +35,7 @@ void setup() {
   digitalWrite(POWER_LED, HIGH);
 
   //Serial.begin(115200);
-
+  pinMode(IRQ_PIN, INPUT);
   radio.begin();
   radio.setChannel(CHANNEL);
   radio.setDataRate(SPEED);
@@ -49,6 +49,7 @@ void setup() {
 }
 
 void loop() {
+  radio.startListening();
   reciver();
   // sensor();
   leds();

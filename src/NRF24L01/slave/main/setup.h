@@ -5,6 +5,7 @@
 #define MOSI_PIN 11
 #define MISO_PIN 12
 #define SCK_PIN 13
+#define IRQ_PIN 8
 #define POWER RF24_PA_MAX //(LOW, MIN, HIGH, MAX)
 #define SPEED RF24_250KBPS
 #define CHANNEL 76 // (0 - 127)
@@ -16,7 +17,7 @@
 #define SENDER1_ID 0x1
 #define SENDER2_ID 0x2
 
-/*DONT USE PINS D9, D10, D11, D12, D13*/
+/*DONT USE PINS D8, D9, D10, D11, D12, D13*/
 
 /*Outputs*/
 #define BUSY_1_LED 2 //Orange Led
