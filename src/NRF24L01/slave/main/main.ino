@@ -34,11 +34,14 @@ void setup() {
   digitalWrite(BUSY_2_LED, HIGH);
   digitalWrite(POWER_LED, HIGH);
 
-  pinMode(IRQ_PIN, INPUT);
+  //pinMode(IRQ_PIN, INPUT);
+
+  //todo init
   radio.begin();
   radio.setChannel(CHANNEL);
   radio.setDataRate(SPEED);
   radio.setPALevel(POWER);
+  radio.setAutoAck(false);
   // radio.disableDynamicPayloads();
   radio.setPayloadSize(SIZE);
   radio.setCRCLength(CRC);
