@@ -34,7 +34,6 @@ void setup() {
   digitalWrite(BUSY_2_LED, HIGH);
   digitalWrite(POWER_LED, HIGH);
 
-  //Serial.begin(115200);
   pinMode(IRQ_PIN, INPUT);
   radio.begin();
   radio.setChannel(CHANNEL);
@@ -54,11 +53,4 @@ void loop() {
   // sensor();
   leds();
   work();
-  /*
-  if (radio.available()) {
-    char packet[3] = "";
-        radio.read(&packet, sizeof(packet));
-    Serial.println(packet);
-    Serial.println("2");
-  }*/
 }
