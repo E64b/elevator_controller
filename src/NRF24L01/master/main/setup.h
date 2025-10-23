@@ -7,7 +7,7 @@
 #define MOSI_PIN 11
 #define MISO_PIN 12
 #define SCK_PIN 13
-#define POWER RF24_PA_MIN //(LOW, MIN, HIGH, MAX)
+#define POWER RF24_PA_MAX //(LOW, MIN, HIGH, MAX)
 #define SPEED RF24_250KBPS
 #define CHANNEL 76 // (0 - 127)
 #define SIZE 3
