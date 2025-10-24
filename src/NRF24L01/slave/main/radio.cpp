@@ -26,27 +26,32 @@ void commandDecoding() {
   // val = incmsg.secondByte & (1 << 7);
   led.ledStateChange = true;
   recived = false;
- //Serial.print(incmsg.ID);
-  //Serial.print(incmsg.firstByte);
- //Serial.print(incmsg.secondByte);
 }
 
 void reciver() {
-  if (millis() - radioTimming > RADIO_TIMING) {    
+  if (millis() - radioTimming > RADIO_TIMING) {
     radioTimming = millis();
     if (radio.available()) {
-      radio.read(&packet, sizeof(packet));      
+      radio.read(&packet, sizeof(packet));
       recived = true;
-    }  
-    incmsg.ID = packet[0];    
+      rad.lastReceiveTime = millis();
+    }
+    incmsg.ID = packet[0];
     if (firsPacket) {
       currentID = incmsg.ID;
       firsPacket = false;
     }
-    incmsg.firstByte = packet[1];    
-    incmsg.secondByte = packet[2];        
+    incmsg.firstByte = packet[1];
+    incmsg.secondByte = packet[2];
     if (recived) {
-      commandDecoding();     
+      commandDecoding();
     }
   }
+  
+  if (millis() - rad.lastReceiveTime > rad.RECEIVE_TIMEOUT) {
+    radio.powerDown();
+    initializeRadio();
+    rad.lastReceiveTime = millis();
+  }
+  
 }

@@ -51,6 +51,7 @@ void setup() {
   //radio.disableDynamicPayloads();
   radio.setPayloadSize(SIZE);
   radio.setCRCLength(CRC);
+  radio.setAutoAck(false);
   radio.openWritingPipe(address);
   //radio.disableCRC(); 
   radio.stopListening();

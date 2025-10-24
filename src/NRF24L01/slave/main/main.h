@@ -2,11 +2,11 @@
 #pragma pack(push, 1)
 
 /*LIBS*/
-#include "setup.h"
 #include "lib/RF24.h"
 #include "lib/nRF24L01.h"
+#include "setup.h"
 #include <Arduino.h>
-//#include <EEPROM.h>
+// #include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
 #include <Wire.h>
@@ -14,7 +14,6 @@
 #include <avr/io.h>
 #include <inttypes.h>
 #include <math.h>
-
 
 /*
 typedef struct {
@@ -29,8 +28,8 @@ typedef struct {
 
 typedef struct {
   uint8_t ID;
-  uint8_t firstByte = 0;  
-  uint8_t secondByte = 0;  
+  uint8_t firstByte = 0;
+  uint8_t secondByte = 0;
 } MAIL;
 
 typedef struct {
@@ -56,15 +55,24 @@ typedef struct {
   bool mode = false;
 } KEY;
 
+typedef struct {
+  uint32_t lastReceiveTime = 0;
+  const uint32_t RECEIVE_TIMEOUT = 1000;
+} RAD;
+
+
 #pragma pack(pop)
 
 void leds();
 void reciver();
-//void sensor();
+// void sensor();
 void work();
+void initializeRadio();
+
 
 extern KEY key;
 extern LEDS led;
-//extern PACKET outmsg;
+// extern PACKET outmsg;
 extern MAIL incmsg;
+extern RAD rad;
 extern RF24 radio;
