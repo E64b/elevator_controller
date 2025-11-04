@@ -4,7 +4,7 @@ LEDS led;
 // PACKET outmsg;
 MAIL incmsg;
 KEY key;
-SoftwareSerial HC12(10, 11);
+SoftwareSerial HC12(HC_TX_PIN, HC_RX_PIN);
 
 void pinRelayInit() {
   pinMode(POWER_LED, OUTPUT);
@@ -52,6 +52,7 @@ void setup() {
   HC12.begin(9600);
   pinRelayInit();
   radioInit();
+  Serial.end();
 }
 
 void loop() {
