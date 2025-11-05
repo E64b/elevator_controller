@@ -73,10 +73,10 @@ void work() {
   }
 
   if (key.work) {
-    led.powerLed = false;
+    led.powerLed = true;
     digitalWrite(POWER_RELAY, LOW);
   } else {
-    led.powerLed = true;
+    led.powerLed = false;
     digitalWrite(POWER_RELAY, HIGH);
   }
 }
