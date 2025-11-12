@@ -74,9 +74,9 @@ void work() {
 
   if (key.work) {
     led.powerLed = true;
-    digitalWrite(POWER_RELAY, LOW);
+    digitalWrite(POWER_RELAY, HIGH);
   } else {
     led.powerLed = false;
-    digitalWrite(POWER_RELAY, HIGH);
+    digitalWrite(POWER_RELAY, LOW);
   }
 }
