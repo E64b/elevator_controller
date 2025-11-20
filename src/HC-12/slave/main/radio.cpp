@@ -5,9 +5,8 @@ static bool recived = false;
 static uint8_t currentID;
 static bool firsPacket = true;
 static char packet[SIZE];
-static char dataBuffer[SIZE];
 
-byte crc8(const uint8_t *data, size_t length) {
+uint8_t crc8(const char *data, size_t length) {
   uint8_t crc = 0x00;
   uint8_t polynomial = 0x07;
 
@@ -46,26 +45,29 @@ void commandDecoding() {
 }
 
 void reciver() {
-  if (millis() - radioTimming > RADIO_TIMING) {
+ if (millis() - radioTimming > RADIO_TIMING) {
     radioTimming = millis();
-    if (HC12.available() >= SIZE) {
-      for (uint8_t i = 0; i < SIZE; i++) {
-        dataBuffer[i] = HC12.read();
-        recived = true;
-      }
+    if (HC12.available() > 0) {
+      if (HC12.read() == incmsg.SOF) {
+        for (uint8_t i = 1; i < SIZE; i++) {
+          packet[i] = HC12.read();
+        }
+        packet[0] = incmsg.SOF;
+     }
       uint8_t receivedCRC = HC12.read();
-      uint8_t calculatedCRC = crc8((const uint8_t *)dataBuffer, 5);
+      uint8_t calculatedCRC = crc8((const char *)packet, SIZE);
 
       if (receivedCRC == calculatedCRC) {
-        for (int i = 0; i < SIZE; i++) {
-          packet[i] = dataBuffer[i];
-          recived = true;
+        incmsg.ID = packet[1];
+        incmsg.firstByte = packet[2];
+        incmsg.secondByte = packet[3];
+        for (uint8_t i = 0; i < SIZE; i++) {
+          packet[i] = 0;
         }
+        recived = true;
       }
     }
-    incmsg.ID = packet[2];
-    incmsg.firstByte = packet[3];
-    incmsg.secondByte = packet[4];
+
     if (recived) {
       commandDecoding();
       recived = false;

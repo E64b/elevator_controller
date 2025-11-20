@@ -3,7 +3,7 @@
 #define HC_TX_PIN 9
 #define HC_RX_PIN 10
 #define HC_SET_PIN 11
-#define SIZE 5
+#define SIZE 4
 
 /*End radio setup*/
 

@@ -4,8 +4,8 @@ static uint32_t radioTimming;
 static uint8_t packet[SIZE];
 
 uint8_t crc8(const char *data, size_t length) {
-  byte crc = 0x00;
-  byte polynomial = 0x07;
+  uint8_t crc = 0x00;
+  uint8_t polynomial = 0x07;
 
   for (size_t i = 0; i < length; i++) {
     crc ^= data[i];
@@ -45,17 +45,16 @@ void keyStatePacket() {
 void createPacket() {
   keyStatePacket();
   packet[0] = static_cast<char>(outmsg.SOF);
-  packet[1] = static_cast<char>(outmsg.SOF);
-  packet[2] = static_cast<char>(outmsg.ID);
-  packet[3] = static_cast<char>(outmsg.firstByte);
-  packet[4] = static_cast<char>(outmsg.secondByte);
+  packet[1] = static_cast<char>(outmsg.ID);
+  packet[2] = static_cast<char>(outmsg.firstByte);
+  packet[3] = static_cast<char>(outmsg.secondByte);
 }
 
 void sender() {
   if (millis() - radioTimming > RADIO_TIMING) {
     createPacket();
     radioTimming = millis();
-    uint8_t crc = crc8((const char *)packet, SIZE);
+    uint8_t crc = crc8((char *)packet, SIZE);
     HC12.write((char *)packet, SIZE);    
     HC12.write(crc);
   }

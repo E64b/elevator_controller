@@ -26,11 +26,10 @@ typedef struct {
 */
 
 typedef struct {
-  uint8_t SOF = 252;
+  uint8_t SOF = 1;
   uint8_t ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
-  uint8_t CRC = 0;
 } MAIL;
 
 typedef struct {
