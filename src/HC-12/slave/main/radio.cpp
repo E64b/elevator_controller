@@ -5,6 +5,24 @@ static bool recived = false;
 static uint8_t currentID;
 static bool firsPacket = true;
 static char packet[SIZE];
+static char dataBuffer[SIZE];
+
+byte crc8(const uint8_t *data, size_t length) {
+  byte crc = 0x00;
+  byte polynomial = 0x07;
+
+  for (size_t i = 0; i < length; i++) {
+    crc ^= data[i];
+    for (byte j = 0; j < 8; j++) {
+      if (crc & 0x80) {
+        crc = (crc << 1) ^ polynomial;
+      } else {
+        crc <<= 1;
+      }
+    }
+  }
+  return crc;
+}
 
 void commandDecoding() {
   key.keyState1 = incmsg.firstByte & (1 << 0);
@@ -25,27 +43,32 @@ void commandDecoding() {
   // val = incmsg.secondByte & (1 << 6);
   // val = incmsg.secondByte & (1 << 7);
   led.ledStateChange = true;
-  recived = false;
 }
 
 void reciver() {
   if (millis() - radioTimming > RADIO_TIMING) {
     radioTimming = millis();
-    if (HC12.available() >= 3) {
-      for (uint8_t i = 0; i < 3; i++) {
-        packet[i] = HC12.read();
+    if (HC12.available() >= SIZE) {
+      for (uint8_t i = 0; i < SIZE; i++) {
+        dataBuffer[i] = HC12.read();
         recived = true;
       }
+      uint8_t receivedCRC = HC12.read();
+      uint8_t calculatedCRC = crc8((const uint8_t *)dataBuffer, 5);
+
+      if (receivedCRC == calculatedCRC) {
+        for (int i = 0; i < SIZE; i++) {
+          packet[i] = dataBuffer[i];
+          recived = true;
+        }
+      }
     }
-    incmsg.ID = packet[0];
-    if (firsPacket) {
-      currentID = incmsg.ID;
-      firsPacket = false;
-    }
-    incmsg.firstByte = packet[1];
-    incmsg.secondByte = packet[2];
+    incmsg.ID = packet[2];
+    incmsg.firstByte = packet[3];
+    incmsg.secondByte = packet[4];
     if (recived) {
       commandDecoding();
+      recived = false;
     }
   }
 }

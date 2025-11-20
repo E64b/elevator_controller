@@ -7,12 +7,12 @@
 // #include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
+#include <SoftwareSerial.h>
 #include <Wire.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <inttypes.h>
 #include <math.h>
-#include <SoftwareSerial.h>
 
 /*
 typedef struct {
@@ -26,9 +26,11 @@ typedef struct {
 */
 
 typedef struct {
+  uint8_t SOF = 252;
   uint8_t ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
+  uint8_t CRC = 0;
 } MAIL;
 
 typedef struct {
@@ -53,7 +55,6 @@ typedef struct {
   bool work = false;
   bool mode = false;
 } KEY;
-
 
 #pragma pack(pop)
 

@@ -4,16 +4,15 @@
 /*LIBS*/
 #include "setup.h"
 #include <Arduino.h>
-//#include <EEPROM.h>
+// #include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
+#include <SoftwareSerial.h>
 #include <Wire.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <inttypes.h>
 #include <math.h>
-#include <SoftwareSerial.h>
-
 
 /*key ADC input*/
 #define KEY_PIN A0
@@ -47,20 +46,20 @@ typedef struct {
 } KEY;
 
 typedef struct {
+  uint8_t SOF = 252;
   uint8_t ID = TRANCIVER_ID;
-  uint8_t firstByte = 0;  
+  uint8_t firstByte = 0;
   uint8_t secondByte = 0;
 } PACKET;
-
 
 /*
 typedef struct {
   uint8_t ID = SENDER_ID;
-  uint8_t keyState = 0;  
+  uint8_t keyState = 0;
   bool keyUp = false;
   bool keyDown = false;
   bool work = false;
-  bool mode = false;  
+  bool mode = false;
 } MAIL;
 */
 
@@ -72,5 +71,5 @@ void sender();
 
 extern KEY key;
 extern PACKET outmsg;
-//extern MAIL incmsg;
+// extern MAIL incmsg;
 extern SoftwareSerial HC12;
