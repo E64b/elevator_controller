@@ -8,8 +8,8 @@ static char packet[SIZE];
 static char dataBuffer[SIZE];
 
 byte crc8(const uint8_t *data, size_t length) {
-  byte crc = 0x00;
-  byte polynomial = 0x07;
+  uint8_t crc = 0x00;
+  uint8_t polynomial = 0x07;
 
   for (size_t i = 0; i < length; i++) {
     crc ^= data[i];
