@@ -42,13 +42,10 @@ void commandDecoding() {
   // val = incmsg.secondByte & (1 << 6);
   // val = incmsg.secondByte & (1 << 7);
   led.ledStateChange = true;
-  for (uint8_t i = 0; i < SIZE; i++) {
-    packet[i] = 0;
-  }
 }
 
 void reciver() {
-  if (millis() - radioTimming > RADIO_TIMING) {
+ if (millis() - radioTimming > RADIO_TIMING) {
     radioTimming = millis();
     if (HC12.available() > 0) {
       if (HC12.read() == incmsg.SOF) {
@@ -56,7 +53,7 @@ void reciver() {
           packet[i] = HC12.read();
         }
         packet[0] = incmsg.SOF;
-      }
+     }
       uint8_t receivedCRC = HC12.read();
       uint8_t calculatedCRC = crc8((const char *)packet, SIZE);
 

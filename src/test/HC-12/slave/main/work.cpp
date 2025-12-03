@@ -61,22 +61,22 @@ void work() {
   }
 
   if (key.keyUp && !key.keyDown) {
-    digitalWrite(UP_OUTPUT, LOW);    
+    digitalWrite(UP_OUTPUT, HIGH);    
   } else {
-    digitalWrite(UP_OUTPUT, HIGH);
+    digitalWrite(UP_OUTPUT, LOW);
   }
 
   if (key.keyDown && !key.keyUp) {
-    digitalWrite(DOWN_OUTPUT, LOW);    
+    digitalWrite(DOWN_OUTPUT, HIGH);    
   } else {
-    digitalWrite(DOWN_OUTPUT, HIGH);
+    digitalWrite(DOWN_OUTPUT, LOW);
   }
 
   if (key.work) {
     led.powerLed = false;
-    digitalWrite(POWER_RELAY, LOW);
+    digitalWrite(POWER_RELAY, HIGH);
   } else {
     led.powerLed = true;
-    digitalWrite(POWER_RELAY, HIGH);
+    digitalWrite(POWER_RELAY, LOW);
   }
 }
