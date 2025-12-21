@@ -18,7 +18,7 @@ uint16_t MiddleArif(uint16_t newVal) {
 }
 
 void keys() {
-  static uint16_t keyValue;
+  static uint16_t keyValue=1023;
 
   if (millis() - ADCInterrups > 1) {
     ADCInterrups = millis();
