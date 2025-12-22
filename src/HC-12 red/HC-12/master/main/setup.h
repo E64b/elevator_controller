@@ -10,8 +10,8 @@
 /*End radio setup*/
 
 /*Keys setup*/
-#define NUM_READ 3 //Averaging
-#define KEY_PROTECTION 250 //Protection against shattering
+#define NUM_READ 5 //Averaging
+#define KEY_PROTECTION 200 //Protection against shattering
 
 #define KEY_1_VAL 0 //0-1023 base 0
 #define KEY_2_VAL 92 //0-1023 base 92
