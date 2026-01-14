@@ -4,7 +4,7 @@
 /*LIBS*/
 #include "setup.h"
 #include <Arduino.h>
-#include <EEPROM.h>
+// #include <EEPROM.h>
 #include <Print.h>
 #include <SPI.h>
 #include <SoftwareSerial.h>
