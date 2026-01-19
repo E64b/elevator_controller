@@ -14,6 +14,13 @@
 #include <inttypes.h>
 #include <math.h>
 
+struct DataMemory {
+  /*DON`T TOUCH*/
+  bool testDataMem = false;
+  bool firstInit = false;
+  /*DON`T TOUCH*/
+};
+
 /*
 typedef struct {
   uint8_t ID;
@@ -64,6 +71,7 @@ void work();
 
 extern KEY key;
 extern LEDS led;
+extern DataMemory DataMem;
 // extern PACKET outmsg;
 extern MAIL incmsg;
 extern SoftwareSerial HC12;

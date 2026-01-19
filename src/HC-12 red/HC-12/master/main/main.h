@@ -27,6 +27,13 @@
 #define LED_7_PIN 7
 #define LED_8_PIN 8
 
+struct DataMemory {
+  /*DON`T TOUCH*/
+  bool testDataMem = false;
+  bool firstInit = false;
+  /*DON`T TOUCH*/
+};
+
 typedef struct {
   bool keyState1 = false;
   bool keyState2 = false;
@@ -71,5 +78,6 @@ void sender();
 
 extern KEY key;
 extern PACKET outmsg;
+extern DataMemory DataMem;
 // extern MAIL incmsg;
 extern SoftwareSerial HC12;

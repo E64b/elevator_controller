@@ -35,6 +35,7 @@ void pinRelayInit() {
 }
 
 void radioInit() {
+  if (!DataMem.firstInit) {
   pinMode(HC_SET_PIN, OUTPUT);
   digitalWrite(HC_SET_PIN, LOW);
   delay(100);
@@ -45,13 +46,28 @@ void radioInit() {
   HC12.print("AT+FU3");
   delay(100);
   digitalWrite(HC_SET_PIN, HIGH);
+  DataMem.firstInit = true;
+  }
+}
+
+void eepromReading() {
+  /*Reading EEPROM*/
+  if (!EEPROM.get(0, DataMem.testDataMem)) {
+    EEPROM.put(0, DataMem);
+    DataMem.testDataMem = true;
+    delay(1000);
+  } else {
+    EEPROM.get(0, DataMem);
+    delay(1000);
+  }
 }
 
 void setup() {
   Serial.begin(9600);
   HC12.begin(9600);
+  eepromReading();
   pinRelayInit();
-  radioInit();
+  radioInit();  
   Serial.end();
 }
 

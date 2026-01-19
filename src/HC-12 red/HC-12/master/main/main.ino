@@ -1,8 +1,8 @@
- #include "main.h"
+#include "main.h"
 
 KEY key;
 PACKET outmsg;
-//MAIL incmsg;
+// MAIL incmsg;
 SoftwareSerial HC12(HC_TX_PIN, HC_RX_PIN);
 
 void pinInit() {
@@ -45,21 +45,39 @@ void pinInit() {
 }
 
 void radioInit() {
-  pinMode(HC_SET_PIN, OUTPUT);
-  digitalWrite(HC_SET_PIN, LOW);
-  delay(100);
-  HC12.print("AT+C001");
-  delay(100);
-  HC12.print("AT+P8");
-  delay(100);
-  HC12.print("AT+FU3");
-  delay(100);
-  digitalWrite(HC_SET_PIN, HIGH);
+  if (!DataMem.firstInit) {
+    pinMode(HC_SET_PIN, OUTPUT);
+    digitalWrite(HC_SET_PIN, LOW);
+    delay(100);
+    HC12.print("AT+C001");
+    delay(100);
+    HC12.print("AT+P8");
+    delay(100);
+    HC12.print("AT+FU3");
+    delay(100);
+    digitalWrite(HC_SET_PIN, HIGH);
+    DataMem.firstInit = true;
+  } else {
+    digitalWrite(HC_SET_PIN, HIGH);
+  }
+}
+
+void eepromReading() {
+  /*Reading EEPROM*/
+  if (!EEPROM.get(0, DataMem.testDataMem)) {
+    EEPROM.put(0, DataMem);
+    DataMem.testDataMem = true;
+    delay(1000);
+  } else {
+    EEPROM.get(0, DataMem);
+    delay(1000);
+  }
 }
 
 void setup() {
   Serial.begin(9600);
   HC12.begin(9600);
+  eepromReading();
   pinInit();
   radioInit();
   Serial.end();
@@ -67,6 +85,6 @@ void setup() {
 
 void loop() {
   keys();
-  leds();  
+  leds();
   sender();
 }
