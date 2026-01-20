@@ -1,4 +1,4 @@
-#define RECIVER_ID 0x1 // Device ID HEX Device ID HEX MAX 8
+#define RECIVER_ID 1 // Device ID
 
 #define HC_TX_PIN 9
 #define HC_RX_PIN 10

@@ -60,23 +60,25 @@ void work() {
     checkID();
   }
 
-  if (key.keyUp && !key.keyDown) {
-    digitalWrite(UP_OUTPUT, HIGH);    
-  } else {
-    digitalWrite(UP_OUTPUT, LOW);
-  }
+  if (idValid) {
+    if (key.keyUp && !key.keyDown) {
+      digitalWrite(UP_OUTPUT, HIGH);
+    } else {
+      digitalWrite(UP_OUTPUT, LOW);
+    }
 
-  if (key.keyDown && !key.keyUp) {
-    digitalWrite(DOWN_OUTPUT, HIGH);    
-  } else {
-    digitalWrite(DOWN_OUTPUT, LOW);
-  }
+    if (key.keyDown && !key.keyUp) {
+      digitalWrite(DOWN_OUTPUT, HIGH);
+    } else {
+      digitalWrite(DOWN_OUTPUT, LOW);
+    }
 
-  if (key.work) {
-    led.powerLed = false;
-    digitalWrite(POWER_RELAY, HIGH);
-  } else {
-    led.powerLed = true;
-    digitalWrite(POWER_RELAY, LOW);
+    if (key.work) {
+      led.powerLed = true;
+      digitalWrite(POWER_RELAY, HIGH);
+    } else {
+      led.powerLed = false;
+      digitalWrite(POWER_RELAY, LOW);
+    }
   }
 }
