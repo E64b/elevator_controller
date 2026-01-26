@@ -1,5 +1,5 @@
 /*Radio setup*/
-#define TRANCIVER_ID 0x1 // Device ID HEX MAX 8
+#define TRANCIVER_ID 1 // Device ID HEX MAX 8
 #define RADIO_TIMING 100 //Frequency of sending messages
 
 #define HC_TX_PIN 9
@@ -37,3 +37,4 @@
 
 /*Others*/
 #define DELAY_TIME 100 // time for init ms
+#define SAVE_TIME 60000 // dalay time for save param
