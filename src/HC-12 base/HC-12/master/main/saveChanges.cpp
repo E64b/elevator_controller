@@ -2,7 +2,7 @@
 static uint32_t timeToSave = 0;
 
 
-void savaChanges() {
+void saveChanges() {
 	if (millis() - timeToSave <= SAVE_TIME) {
 		keyState1;
 		keyState2;
