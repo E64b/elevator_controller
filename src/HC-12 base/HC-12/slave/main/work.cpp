@@ -86,10 +86,23 @@ void work() {
 		if (key.work) {
 			led.powerLed = true;
 			digitalWrite(POWER_RELAY, HIGH);
+			led.ledStateChange = true;
 		}
 		else {
 			led.powerLed = false;
 			digitalWrite(POWER_RELAY, LOW);
+			led.ledStateChange = true;
+		}
+
+		if (key.mode) {
+			led.busy1Led = true;
+			led.busy1Led = false;
+			led.ledStateChange = true;
+		}
+		else {
+			led.busy1Led = false;
+			led.busy2Led = true;
+			led.ledStateChange = true;
 		}
 	}
 }

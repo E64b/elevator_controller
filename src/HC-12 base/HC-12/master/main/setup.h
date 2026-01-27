@@ -38,3 +38,5 @@
 /*Others*/
 #define DELAY_TIME 100 // time for init ms
 #define SAVE_TIME 60000 // dalay time for save param
+
+#define AUTO_MODE_TIMER 60000 // timer for auto move 

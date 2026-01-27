@@ -37,7 +37,7 @@
 
 #define DELAY_TIME 1000 //time for init ms
 
-#define LED_DURATION 500 // led flash time
+#define LED_DURATION 1000 // led flash time
 
 #define POWER_DELAY 1000 // Delay for init power relay
 
