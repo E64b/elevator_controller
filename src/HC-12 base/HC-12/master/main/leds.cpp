@@ -1,10 +1,7 @@
 #include "main.h"
 
-static uint32_t ledDuration;
-
 void leds() {
-  if (millis() - ledDuration > LED_DURATION && key.keyStateChange) {
-    ledDuration = millis();
+  if (key.keyStateChange) {
     key.keyStateChange = false;
     digitalWrite(LED_1_PIN, key.keyState1);
     digitalWrite(LED_2_PIN, key.keyState2);

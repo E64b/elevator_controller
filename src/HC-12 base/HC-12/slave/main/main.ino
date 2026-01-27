@@ -4,6 +4,7 @@ LEDS led;
 // PACKET outmsg;
 MAIL incmsg;
 KEY key;
+DataMemory dataMem;
 SoftwareSerial HC12(HC_TX_PIN, HC_RX_PIN);
 
 void pinRelayInit() {
@@ -35,7 +36,7 @@ void pinRelayInit() {
 }
 
 void radioInit() {
-  if (!DataMem.firstInit) {
+  if (!dataMem.firstInit) {
   pinMode(HC_SET_PIN, OUTPUT);
   digitalWrite(HC_SET_PIN, LOW);
   delay(100);
@@ -46,18 +47,18 @@ void radioInit() {
   HC12.print("AT+FU3");
   delay(100);
   digitalWrite(HC_SET_PIN, HIGH);
-  DataMem.firstInit = true;
+  dataMem.firstInit = true;
   }
 }
 
 void eepromReading() {
   /*Reading EEPROM*/
-  if (!EEPROM.get(0, DataMem.testDataMem)) {
-    EEPROM.put(0, DataMem);
-    DataMem.testDataMem = true;
+  if (!EEPROM.get(0, dataMem.testDataMem)) {
+    EEPROM.put(0, dataMem);
+    dataMem.testDataMem = true;
     delay(1000);
   } else {
-    EEPROM.get(0, DataMem);
+    EEPROM.get(0, dataMem);
     delay(1000);
   }
 }

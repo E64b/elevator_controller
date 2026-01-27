@@ -32,11 +32,10 @@
 /*Leds setup*/
 #define FLASH_TIME 500 //led flash time
 #define NUM_FLASH 5 //Number of flashes
-#define LED_DURATION 50 //The refresh rate of the leds
 /*End leds setup*/
 
 /*Others*/
 #define DELAY_TIME 100 // time for init ms
 #define SAVE_TIME 60000 // dalay time for save param
 
-#define AUTO_MODE_TIMER 60000 // timer for auto move 
+#define AUTO_MODE_TIMER 5000 // timer for auto move 

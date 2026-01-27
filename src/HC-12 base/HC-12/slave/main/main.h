@@ -1,5 +1,4 @@
 #pragma once
-#pragma pack(push, 1)
 
 /*LIBS*/
 #include "setup.h"
@@ -17,9 +16,12 @@
 struct DataMemory {
   /*DON`T TOUCH*/
   bool testDataMem = false;
+  /*DON`T TOUCH*/
   bool firstInit = false;
   /*DON`T TOUCH*/
 };
+
+#pragma pack(push, 1)
 
 /*
 typedef struct {
@@ -71,7 +73,7 @@ void work();
 
 extern KEY key;
 extern LEDS led;
-extern DataMemory DataMem;
+extern DataMemory dataMem;
 // extern PACKET outmsg;
 extern MAIL incmsg;
 extern SoftwareSerial HC12;

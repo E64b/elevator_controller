@@ -1,8 +1,7 @@
-#pragma once
-#pragma pack(push, 1)
+// #pragma once
 
 /*LIBS*/
-#include "setup.h"
+
 #include <Arduino.h>
 #include <EEPROM.h>
 #include <Print.h>
@@ -13,6 +12,9 @@
 #include <avr/io.h>
 #include <inttypes.h>
 #include <math.h>
+#include <stdio.h>
+
+#include "setup.h"
 
 /*key ADC input*/
 #define KEY_PIN A0
@@ -30,9 +32,21 @@
 struct DataMemory {
   /*DON`T TOUCH*/
   bool testDataMem = false;
+  /*DON`T TOUCH*/
   bool firstInit = false;
   /*DON`T TOUCH*/
+  bool key1 = false;
+  bool key2 = false;
+  bool key3 = false;
+  bool key4 = false;
+  bool key5 = false;
+  bool key6 = false;
+  bool key7 = false;
+  bool key8 = false;
+  /*DON`T TOUCH*/
 };
+
+#pragma pack(push, 1)
 
 typedef struct {
   bool keyState1 = false;
@@ -49,7 +63,8 @@ typedef struct {
   bool keyMode = false;
 
   bool keyStateChange = false;
-  bool workState = false;
+  bool autoMode = false;
+  uint32_t autoTimer = 0;
 } KEY;
 
 typedef struct {
@@ -75,9 +90,10 @@ typedef struct {
 void leds();
 void keys();
 void sender();
+void autoMode();
 
 extern KEY key;
 extern PACKET outmsg;
-extern DataMemory DataMem;
+extern DataMemory dataMem;
 // extern MAIL incmsg;
 extern SoftwareSerial HC12;
