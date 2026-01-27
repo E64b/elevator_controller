@@ -85,6 +85,7 @@ void work() {
   }
 
   if (idValid && currentId == incmsg.ID) {
+    idValid=false;
     if (key.keyUp && !key.keyDown) {
       digitalWrite(UP_OUTPUT, HIGH);
     } else {
@@ -109,7 +110,7 @@ void work() {
 
     if (key.mode) {
       led.busy1Led = true;
-      led.busy1Led = false;
+      led.busy2Led = false;
       led.ledStateChange = true;
     } else {
       led.busy1Led = false;
