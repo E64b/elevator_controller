@@ -1,4 +1,4 @@
-/*#include "main.h"
+#include "main.h"
 
 static bool idValid = false;
 static uint8_t idNow = 0;
@@ -111,14 +111,37 @@ void work() {
       led.ledStateChange = true;
     }
 
-    if (key.mode) {
-      led.busy1Led = true;
-      led.busy2Led = false;
+    if (key.mode && millis() - autoBlinkTimer >= LED_DURATION) {
+      autoBlinkTimer = millis();
       led.ledStateChange = true;
-    } else {
-      led.busy1Led = false;
-      led.busy2Led = true;
+      if (incmsg.ID == 1) {
+        if (!led.busy1Led) {
+          led.busy1Led = true;
+          led.busy2Led = false;
+        } else {
+          led.busy1Led = false;
+          led.busy2Led = false;
+        }
+      } else if (incmsg.ID == 2) {
+        if (!led.busy2Led) {
+          led.busy1Led = false;
+          led.busy2Led = true;
+        } else {
+          led.busy1Led = false;
+          led.busy2Led = false;
+        }
+      }
+    }
+    if (!key.mode) {
       led.ledStateChange = true;
+      if (incmsg.ID == 1) {
+        led.busy1Led = true;
+        led.busy2Led = false;
+      }
+      if (incmsg.ID == 2) {
+        led.busy1Led = false;
+        led.busy2Led = true;
+      }
     }
   }
-} */
+}
