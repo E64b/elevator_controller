@@ -64,6 +64,10 @@ typedef struct {
   bool mode = false;
 } KEY;
 
+typedef struct {
+ bool error = false;
+} DATA;
+
 #pragma pack(pop)
 
 void leds();
@@ -74,6 +78,7 @@ void work();
 extern KEY key;
 extern LEDS led;
 extern DataMemory dataMem;
+extern DATA data;
 // extern PACKET outmsg;
 extern MAIL incmsg;
 extern SoftwareSerial HC12;

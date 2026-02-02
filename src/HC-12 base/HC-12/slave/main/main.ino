@@ -5,6 +5,7 @@ LEDS led;
 MAIL incmsg;
 KEY key;
 DataMemory dataMem;
+DATA data;
 SoftwareSerial HC12(HC_TX_PIN, HC_RX_PIN);
 
 void pinRelayInit() {
@@ -37,17 +38,17 @@ void pinRelayInit() {
 
 void radioInit() {
   if (!dataMem.firstInit) {
-  pinMode(HC_SET_PIN, OUTPUT);
-  digitalWrite(HC_SET_PIN, LOW);
-  delay(100);
-  HC12.print("AT+C001");
-  delay(100);
-  HC12.print("AT+P8");
-  delay(100);
-  HC12.print("AT+FU3");
-  delay(100);
-  digitalWrite(HC_SET_PIN, HIGH);
-  dataMem.firstInit = true;
+    pinMode(HC_SET_PIN, OUTPUT);
+    digitalWrite(HC_SET_PIN, LOW);
+    delay(100);
+    HC12.print("AT+C001");
+    delay(100);
+    HC12.print("AT+P8");
+    delay(100);
+    HC12.print("AT+FU3");
+    delay(100);
+    digitalWrite(HC_SET_PIN, HIGH);
+    dataMem.firstInit = true;
   }
 }
 
@@ -68,7 +69,7 @@ void setup() {
   HC12.begin(9600);
   eepromReading();
   pinRelayInit();
-  radioInit();  
+  radioInit();
   Serial.end();
 }
 

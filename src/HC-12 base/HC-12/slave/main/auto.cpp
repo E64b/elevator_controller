@@ -1,10 +1,79 @@
 #include "main.h"
 
 static bool idValid = false;
-static uint8_t idNow = 0;
+//static uint8_t idNow = 0;
 static uint8_t currentId = 0;
 static uint32_t autoBlinkTimer = 0;
 
+void checkID() {
+  switch (RECIVER_ID) {
+  case 1:
+    if (key.keyState1) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 2:
+    if (key.keyState2) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 3:
+    if (key.keyState3) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 4:
+    if (key.keyState4) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 5:
+    if (key.keyState5) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 6:
+    if (key.keyState6) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 7:
+    if (key.keyState7) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  case 8:
+    if (key.keyState8) {
+      idValid = true;
+      currentId = incmsg.ID;
+      led.powerLed = true;
+      led.ledStateChange = true;
+    }
+    break;
+  }
+}
+/*
 void checkID() {
   if (key.keyState1) {
     idNow = 1;
@@ -79,7 +148,7 @@ void checkID() {
     }
   }
 }
-
+*/
 void work() {
   if (!idValid) {
     checkID();
