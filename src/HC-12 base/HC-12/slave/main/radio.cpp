@@ -70,6 +70,7 @@ void reciver() {
 
     if (recived) {
       commandDecoding();
+       data.msgTime = millis();
       recived = false;
     }
   }
