@@ -65,7 +65,8 @@ typedef struct {
 } KEY;
 
 typedef struct {
- bool error = false;
+  bool error = false;
+  uint32_t msgTime = 0;
 } DATA;
 
 #pragma pack(pop)
@@ -74,6 +75,7 @@ void leds();
 void reciver();
 // void sensor();
 void work();
+void protection();
 
 extern KEY key;
 extern LEDS led;

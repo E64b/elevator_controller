@@ -77,5 +77,6 @@ void loop() {
   reciver();
   // sensor();
   leds();
+  protection();
   work();
 }

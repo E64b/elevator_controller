@@ -1,7 +1,6 @@
 #include "main.h"
 
 static bool idValid = false;
-//static uint8_t idNow = 0;
 static uint8_t currentId = 0;
 static uint32_t autoBlinkTimer = 0;
 
@@ -160,12 +159,14 @@ void work() {
 
     if (key.keyUp && !key.keyDown) {
       digitalWrite(UP_OUTPUT, HIGH);
+      data.msgTime = millis();
     } else {
       digitalWrite(UP_OUTPUT, LOW);
     }
 
     if (key.keyDown && !key.keyUp) {
       digitalWrite(DOWN_OUTPUT, HIGH);
+      data.msgTime = millis();
     } else {
       digitalWrite(DOWN_OUTPUT, LOW);
     }
@@ -183,7 +184,7 @@ void work() {
     if (key.mode && millis() - autoBlinkTimer >= LED_DURATION) {
       autoBlinkTimer = millis();
       led.ledStateChange = true;
-      if (incmsg.ID == 1) {
+      if (incmsg.ID == SENDER1_ID) {
         if (!led.busy1Led) {
           led.busy1Led = true;
           led.busy2Led = false;
@@ -191,7 +192,7 @@ void work() {
           led.busy1Led = false;
           led.busy2Led = false;
         }
-      } else if (incmsg.ID == 2) {
+      } else if (incmsg.ID == SENDER2_ID) {
         if (!led.busy2Led) {
           led.busy1Led = false;
           led.busy2Led = true;
@@ -203,11 +204,11 @@ void work() {
     }
     if (!key.mode) {
       led.ledStateChange = true;
-      if (incmsg.ID == 1) {
+      if (incmsg.ID == SENDER1_ID) {
         led.busy1Led = true;
         led.busy2Led = false;
       }
-      if (incmsg.ID == 2) {
+      if (incmsg.ID == SENDER2_ID) {
         led.busy1Led = false;
         led.busy2Led = true;
       }
