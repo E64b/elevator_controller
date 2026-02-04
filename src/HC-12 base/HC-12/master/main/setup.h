@@ -1,6 +1,6 @@
 /*Radio setup*/
 #define TRANCIVER_ID 1 // Device ID HEX MAX 8
-#define SOF 1
+#define DSOF 1
 
 #define RADIO_TIMING 100 //Frequency of sending messages
 
@@ -40,4 +40,4 @@
 #define DELAY_TIME 100 // time for init ms
 #define SAVE_TIME 60000 // dalay time for save param
 
-#define AUTO_MODE_TIMER 5000 // timer for auto move 
+#define AUTO_MODE_TIMER 198000 // timer for auto move 

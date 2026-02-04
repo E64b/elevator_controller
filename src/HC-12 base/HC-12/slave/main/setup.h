@@ -3,7 +3,7 @@
 #define SENDER1_ID 1
 #define SENDER2_ID 2
 
-#define SOF 1
+#define DSOF 1
 
 /*End radio setup*/
 #define HC_TX_PIN 9

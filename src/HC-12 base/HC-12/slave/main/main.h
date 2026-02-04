@@ -35,7 +35,7 @@ typedef struct {
 */
 
 typedef struct {
-  uint8_t SOF = SOF;
+  uint8_t SOF = DSOF;
   uint8_t ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;

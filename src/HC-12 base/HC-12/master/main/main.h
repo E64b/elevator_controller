@@ -68,10 +68,11 @@ typedef struct {
   bool keyStateChange = false;
   bool autoMode = false;
   uint32_t autoTimer = 0;
+  bool keyIsPress = false;
 } DATA;
 
 typedef struct {
-  uint8_t SOF = SOF;
+  uint8_t SOF = DSOF;
   uint8_t ID = TRANCIVER_ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
