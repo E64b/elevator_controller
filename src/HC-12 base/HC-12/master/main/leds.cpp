@@ -1,8 +1,8 @@
 #include "main.h"
 
 void leds() {
-  if (key.keyStateChange) {
-    key.keyStateChange = false;
+  if (data.keyStateChange) {
+    data.keyStateChange = false;
     digitalWrite(LED_1_PIN, key.keyState1);
     digitalWrite(LED_2_PIN, key.keyState2);
     digitalWrite(LED_3_PIN, key.keyState3);

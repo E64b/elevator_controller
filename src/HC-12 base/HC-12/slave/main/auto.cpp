@@ -106,6 +106,8 @@ void work() {
       led.ledStateChange = true;
     }
 
+    //Auto Mode
+
     if (key.mode && millis() - autoBlinkTimer >= LED_DURATION) {
       autoBlinkTimer = millis();
       led.ledStateChange = true;

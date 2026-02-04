@@ -28,114 +28,114 @@ void keys() {
 
     if (KEY_RELISED - TOLERANCE <= keyValue &&
         KEY_RELISED + TOLERANCE >= keyValue) {
-      if (!key.autoMode && !key.keyMode) {
+      if (!data.autoMode || !key.keyMode) {
         key.keyUp = false;
         key.keyDown = false;
-        //key.keyStateChange = true;
+        //data.keyStateChange = true;
       }
 
     } else if (KEY_1_VAL <= keyValue && KEY_1_VAL + TOLERANCE >= keyValue) {
       if (key.keyState1 == true) {
         key.keyState1 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState1 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_2_VAL - TOLERANCE <= keyValue &&
                KEY_2_VAL + TOLERANCE >= keyValue) {
       if (key.keyState2 == true) {
         key.keyState2 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState2 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_3_VAL - TOLERANCE <= keyValue &&
                KEY_3_VAL + TOLERANCE >= keyValue) {
       if (key.keyState3 == true) {
         key.keyState3 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState3 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_4_VAL - TOLERANCE <= keyValue &&
                KEY_4_VAL + TOLERANCE >= keyValue) {
       if (key.keyState4 == true) {
         key.keyState4 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState4 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_5_VAL - TOLERANCE <= keyValue &&
                KEY_5_VAL + TOLERANCE >= keyValue) {
       if (key.keyState5 == true) {
         key.keyState5 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState5 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_6_VAL - TOLERANCE <= keyValue &&
                KEY_6_VAL + TOLERANCE >= keyValue) {
       if (key.keyState6 == true) {
         key.keyState6 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState6 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_7_VAL - TOLERANCE <= keyValue &&
                KEY_7_VAL + TOLERANCE >= keyValue) {
       if (key.keyState7 == true) {
         key.keyState7 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState7 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_8_VAL - TOLERANCE <= keyValue &&
                KEY_8_VAL + TOLERANCE >= keyValue) {
       if (key.keyState8 == true) {
         key.keyState8 = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyState8 = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_9_VAL - TOLERANCE <= keyValue &&
                KEY_9_VAL + TOLERANCE >= keyValue) {
       if (key.keyUp == false) {
         key.keyUp = true;
-        key.keyStateChange = true;
-        key.autoTimer = millis();
+        data.keyStateChange = true;
+        data.autoTimer = millis();
       }
     } else if (KEY_10_VAL - TOLERANCE <= keyValue &&
                KEY_10_VAL + TOLERANCE >= keyValue) {
       if (key.keyWork == false) {
         key.keyWork = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyWork = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     } else if (KEY_11_VAL - TOLERANCE <= keyValue &&
                KEY_11_VAL + TOLERANCE >= keyValue) {
       if (key.keyDown == false) {
         key.keyDown = true;
-        key.keyStateChange = true;
-        key.autoTimer = millis();
+        data.keyStateChange = true;
+        data.autoTimer = millis();
       }
     } else if (KEY_12_VAL - TOLERANCE <= keyValue &&
                KEY_12_VAL + TOLERANCE >= keyValue) {
       if (key.keyMode == false) {
         key.keyMode = true;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       } else {
         key.keyMode = false;
-        key.keyStateChange = true;
+        data.keyStateChange = true;
       }
     }
   }

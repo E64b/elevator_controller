@@ -3,6 +3,8 @@
 #define SENDER1_ID 1
 #define SENDER2_ID 2
 
+#define SOF 1
+
 /*End radio setup*/
 #define HC_TX_PIN 9
 #define HC_RX_PIN 10
@@ -13,7 +15,7 @@
 
 /*Outputs*/
 #define BUSY_1_LED 2 //Orange Led
-#define BUSY_2_LED 3 //Red led
+#define BUSY_2_LED 3 //Blue led
 #define POWER_LED 4 //Green Led
 
 #define UP_OUTPUT 5 //Output For Relay UP
@@ -39,7 +41,5 @@
 #define LOSS_MSG_TIME 1000 //time for auto off if loss input msg
 
 #define LED_DURATION 1000 // led flash time
-
-#define POWER_DELAY 1000 // Delay for init power relay
 
 #define RADIO_TIMING 10 //delay for recived msg

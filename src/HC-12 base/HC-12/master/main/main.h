@@ -61,14 +61,17 @@ typedef struct {
   bool keyDown = false;
   bool keyWork = false;
   bool keyMode = false;
-
-  bool keyStateChange = false;
-  bool autoMode = false;
-  uint32_t autoTimer = 0;
 } KEY;
 
 typedef struct {
-  uint8_t SOF = 1;
+  bool error = false;
+  bool keyStateChange = false;
+  bool autoMode = false;
+  uint32_t autoTimer = 0;
+} DATA;
+
+typedef struct {
+  uint8_t SOF = SOF;
   uint8_t ID = TRANCIVER_ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
@@ -95,5 +98,6 @@ void autoMode();
 extern KEY key;
 extern PACKET outmsg;
 extern DataMemory dataMem;
+extern DATA data;
 // extern MAIL incmsg;
 extern SoftwareSerial HC12;

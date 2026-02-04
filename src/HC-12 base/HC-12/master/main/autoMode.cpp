@@ -3,16 +3,16 @@
 void autoMode() {
   if (key.keyMode) {
     if (key.keyUp) {
-      key.autoMode = true;
-    } else if (key.keyStateChange || millis() - AUTO_MODE_TIMER >=
-                    key.autoMode) {
-      key.autoMode = false;
+      data.autoMode = true;
+    } else if (data.keyStateChange ||
+               millis() - AUTO_MODE_TIMER >= data.autoTimer) {
+      data.autoMode = false;
     }
     if (key.keyDown) {
-      key.autoMode = true;
-    } else if (key.keyStateChange || millis() - AUTO_MODE_TIMER >=
-                    key.autoMode) {
-      key.autoMode = false;
+      data.autoMode = true;
+    } else if (data.keyStateChange ||
+               millis() - AUTO_MODE_TIMER >= data.autoTimer) {
+      data.autoMode = false;
     }
   }
 }

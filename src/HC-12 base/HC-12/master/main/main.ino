@@ -4,6 +4,7 @@ KEY key;
 PACKET outmsg;
 // MAIL incmsg;
 DataMemory dataMem;
+DATA data;
 SoftwareSerial HC12(HC_TX_PIN, HC_RX_PIN);
 
 void eepromReading() {
