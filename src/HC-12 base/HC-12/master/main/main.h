@@ -72,8 +72,8 @@ typedef struct {
 } DATA;
 
 typedef struct {
-  uint8_t SOF = DSOF;
-  uint8_t ID = TRANCIVER_ID;
+  uint8_t sof = SOF;
+  uint8_t id = TRANCIVER_ID;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
 } PACKET;

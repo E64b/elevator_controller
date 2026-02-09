@@ -1,6 +1,6 @@
 /*Radio setup*/
 #define TRANCIVER_ID 1 // Device ID HEX MAX 8
-#define DSOF 1
+#define SOF 85
 
 #define RADIO_TIMING 100 //Frequency of sending messages
 

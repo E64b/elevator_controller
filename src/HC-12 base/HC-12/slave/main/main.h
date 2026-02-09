@@ -35,8 +35,8 @@ typedef struct {
 */
 
 typedef struct {
-  uint8_t SOF = DSOF;
-  uint8_t ID;
+  uint8_t sof = SOF;
+  uint8_t id;
   uint8_t firstByte = 0;
   uint8_t secondByte = 0;
 } MAIL;

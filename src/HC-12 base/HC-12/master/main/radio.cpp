@@ -44,8 +44,8 @@ void keyStatePacket() {
 
 void createPacket() {
   keyStatePacket();
-  packet[0] = static_cast<char>(outmsg.SOF);
-  packet[1] = static_cast<char>(outmsg.ID);
+  packet[0] = static_cast<char>(outmsg.sof);
+  packet[1] = static_cast<char>(outmsg.id);
   packet[2] = static_cast<char>(outmsg.firstByte);
   packet[3] = static_cast<char>(outmsg.secondByte);
 }

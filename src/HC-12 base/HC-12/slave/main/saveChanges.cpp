@@ -5,7 +5,6 @@ static uint32_t timeToSave = 0;
 void saveChanges() {
 	if (millis() - timeToSave <= SAVE_TIME) {
 		timeToSave = millis();
-
 		keyState1;
 		keyState2;
 		keyState3;
@@ -16,5 +15,4 @@ void saveChanges() {
 		keyState8;
 	}
 }
-
 */

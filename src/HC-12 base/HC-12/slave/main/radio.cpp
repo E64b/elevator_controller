@@ -45,20 +45,20 @@ void commandDecoding() {
 }
 
 void reciver() {
- if (millis() - radioTimming > RADIO_TIMING) {
+  if (millis() - radioTimming > RADIO_TIMING) {
     radioTimming = millis();
     if (HC12.available() > 0) {
-      if (HC12.read() == incmsg.SOF) {
+      if (HC12.read() == incmsg.sof) {
         for (uint8_t i = 1; i < SIZE; i++) {
           packet[i] = HC12.read();
         }
         packet[0] = incmsg.SOF;
-     }
+      }
       uint8_t receivedCRC = HC12.read();
       uint8_t calculatedCRC = crc8((const char *)packet, SIZE);
 
       if (receivedCRC == calculatedCRC) {
-        incmsg.ID = packet[1];
+        incmsg.id = packet[1];
         incmsg.firstByte = packet[2];
         incmsg.secondByte = packet[3];
         for (uint8_t i = 0; i < SIZE; i++) {
@@ -70,7 +70,7 @@ void reciver() {
 
     if (recived) {
       commandDecoding();
-       data.msgTime = millis();
+      data.msgTime = millis();
       recived = false;
     }
   }

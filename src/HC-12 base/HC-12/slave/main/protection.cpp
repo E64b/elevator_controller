@@ -21,9 +21,7 @@ void protection() {
     key.keyUp = false;
     key.keyDown = false;
     key.work = false;
-
     errorBlink();
-
     data.error = true;
   }
 }
